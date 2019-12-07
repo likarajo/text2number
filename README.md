@@ -33,4 +33,25 @@ But, essentially, the words that are rare have more classifying power compared t
 6. Find the TF values for the words
 7. Find the TF-IDF values for the words
 
+### Problems with TF-IDF and Bag of Words Approach
+* Words are treated individually and every single word is converted into its numeric counterpart. 
+* The context information of the word is not retained. <br>
 
+For instance: Consider two sentences "big red machine and carpet" and "big red carpet and machine". If you use a bag of words approach, you will get the same vectors for these two sentences. However, we can clearly see that in the first sentence we are talking about a "big red machine", while the second sentence contains information about the "big red carpet". Hence, context information is very important.
+
+## N-grams
+**Idea**: Capture the context information. 
+* A contiguous sequence of N items from a given sample of text or speech. 
+* An item can be a character, a word or a sentence and N can be any integer. 
+* When N is 2, we call the sequence a bigram. Similarly, a sequence of 3 items is called a trigram, and so on.
+
+### Connection of N-Grams with Markov Chains
+A **Markov chain** is a sequence of states. 
+* With 2 states, X and Y, in a Markov chain, you can either stay at one state or move to the other state. The probability of moving from X to Y is 50% and similarly, the probability of staying at X is 50%. Likewise, the probability of staying at Y is 50% while the possibility of moving back to X is also 50%. This way a Markov sequence can be generated, such as XXYX, etc.
+* In an N-Grams model, an item in a sequence can be treated as a Markov state.
+
+1. Scrape data
+2. Only keep letters, periods, and spaces
+3. Create N-grams dictionary
+    * character tri-gram (3-gram)
+    * Ngrams as keys, and the corresponding characters which occur after the ngrams in the text, as values.
